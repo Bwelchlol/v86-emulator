@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body style="margin:0;background:black;overflow:hidden;">
+
+<canvas id="screen" style="width:100vw;height:100vh;"></canvas>
+
+<script src="https://copy.sh/v86/build/v86_all.js"></script>
+<script>
+new V86({
+    wasm_path: "https://copy.sh/v86/build/v86.wasm",
+    memory_size: 64 * 1024 * 1024,
+    vga_memory_size: 8 * 1024 * 1024,
+    screen_container: document.getElementById("screen"),
+
+    // Built-in Linux demo
+    kernel_url: "https://copy.sh/v86/images/vmlinuz-2.6.20",
+    initrd_url: "https://copy.sh/v86/images/initrd-2.6.20.gz",
+    cmdline: "console=ttyS0 root=/dev/ram0 rw",
+
+    autostart: true
+});
+</script>
+
+</body>
+</html>
